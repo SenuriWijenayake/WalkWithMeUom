@@ -18,7 +18,7 @@ angular.module('WalkWithMeApp.services',[]).factory('userService', function($htt
                   url: '/json/register.json'
               });
       },
-      Menu : function (){              
+      MenuService : function (mobileNumber, username){              
               return $http({
                   method : 'GET',
                   url: 'http://localhost/WalkWithMe/php/index.php/MenuController/loadMenu',

@@ -111,20 +111,27 @@ angular.module('WalkWithMeApp.controllers', [])
     }
 })
 
-.controller('MenuCtrl', function($scope,$ionicLoading, $state) {
+.controller('MenuCtrl', function($scope,$ionicLoading, $state, MenuService) {
+    var mobileNumber = 713456781;
+    var username = "Mandy Moore";
+    WalkWithMeApp.MenuService(mobileNumber, username).success(function(data){
+        // My Next Walk
+    
+        $scope.date = data.nextWalk;
 
-    // show login ctrl
-    $scope.history = function(){
-        alert("history");
-    }
+        // Walking Invitations
 
-  $scope.newWalk = function(){
-        alert("New walk");
-    }
+        $scope.inviteWalk = data.invitations;
 
-    $scope.onSwipeRight = function(){
-         $state.go('motivation');
+        // History
+
+        $scope.historyWalk = data.walkHistory;
+
+        $scope.range = function(n){
+            return new Array(n);
+        };
     }
+);
 })
 
 .controller('WalkCtrl', function($scope,$ionicLoading, $state) {
