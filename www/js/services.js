@@ -21,11 +21,9 @@ angular.module('WalkWithMeApp.services',[]).factory('userService', function($htt
       MenuService : function (mobileNumber, username){              
               return $http({
                   method : 'GET',
-                  url: 'http://localhost/WalkWithMe/php/index.php/MenuController/loadMenu',
+                  url: 'http://localhost/WalkWithMeUom/php/index.php/MenuController/loadMenu',
                   data : {"UserId" : 713456781 , "Username" : "Mandy Moore"}
-        }).success(function(data){
-              console.log(data);
-        });
+        })
       }// end function
 
     }; // end return     
@@ -39,5 +37,4 @@ angular.module('WalkWithMeApp.services',[]).factory('userService', function($htt
       } // end function
     }; // end return     
 })
-
 
